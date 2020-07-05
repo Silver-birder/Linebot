@@ -40,6 +40,7 @@ LINE Official Account Manager に行き、
   * postback actionなどカスタマイズできる
 
 Messaging APIから設定する ↓
+```bash
 curl -v -X POST https://api.line.me/v2/bot/richmenu \
 -H 'Authorization: Bearer {channel access token}' \
 -H 'Content-Type: application/json' \
@@ -67,18 +68,23 @@ curl -v -X POST https://api.line.me/v2/bot/richmenu \
       }
   ]
 }'
+```
 ↓
+```
 {"richMenuId":"richmenu-XXXX"}
+```
 
+```bash
 curl -v -X POST https://api-data.line.me/v2/bot/richmenu/richmenu-XXXX/content \
 -H "Authorization: Bearer {channel access token}" \
 -H "Content-Type: image/png" \
 -T richmenu-template-guide-05.png
-
+```
 ↓
-
+```bash
 curl -v -X POST https://api.line.me/v2/bot/user/all/richmenu/richmenu-XXXX \
 -H "Authorization: Bearer {channel access token}"
+```
 
 ## memo
 
