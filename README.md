@@ -25,11 +25,17 @@ https://script.google.com/macros/s/.../exec
 
 LINE Official Account Manager に行き、
 
-応答設定 > 詳細設定 > 応答メッセージ
+設定 > 応答設定 > 詳細設定 > 応答メッセージ
 オンからオフに変更
 
 （これがオンになっていると、Webhookではなく、Lineデフォルトメッセージが返却される）
- 
+
+▽ 5. リッチメニュー
+
+https://manager.line.biz/account
+
+リッチメニュー より設定
+
 ## memo
 
 * [line messaging api](https://developers.line.biz/ja/reference/messaging-api/)
