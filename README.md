@@ -32,9 +32,53 @@ LINE Official Account Manager に行き、
 
 ▽ 5. リッチメニュー
 
-https://manager.line.biz/account
+[リッチメニューを作成するツールを選択する](https://developers.line.biz/ja/docs/messaging-api/using-rich-menus/#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)
 
-リッチメニュー より設定
+* LINE Official Account Manager
+  * URLリンクなど単純なものしか設定できない
+* Messaging API
+  * postback actionなどカスタマイズできる
+
+Messaging APIから設定する ↓
+curl -v -X POST https://api.line.me/v2/bot/richmenu \
+-H 'Authorization: Bearer {channel access token}' \
+-H 'Content-Type: application/json' \
+-d \
+'{
+  "size":{
+      "width":2500,
+      "height":843
+  },
+  "selected": false,
+  "name": "LINE Developers Info",
+  "chatBarText": "Tap to open",
+  "areas": [
+      {
+          "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 2500,
+              "height": 843
+          },
+          "action": {
+               "type": "postback",
+               "data": "sample=hoge"
+           }
+      }
+  ]
+}'
+↓
+{"richMenuId":"richmenu-XXXX"}
+
+curl -v -X POST https://api-data.line.me/v2/bot/richmenu/richmenu-XXXX/content \
+-H "Authorization: Bearer {channel access token}" \
+-H "Content-Type: image/png" \
+-T richmenu-template-guide-05.png
+
+↓
+
+curl -v -X POST https://api.line.me/v2/bot/user/all/richmenu/richmenu-XXXX \
+-H "Authorization: Bearer {channel access token}"
 
 ## memo
 
