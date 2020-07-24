@@ -1,10 +1,8 @@
 function doPost(e) {  
   var events = JSON.parse(e.postData.contents).events;
   events.forEach(function(event) {
-    if(event.type == "message") {
       Logger.log("Catch the message event");
       reply(event);
-    }
   });
 }
 
